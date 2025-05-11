@@ -15,7 +15,7 @@ const AMOY_CONTRACTS: ContractConfig = {
 };
 
 const MATIC_CONTRACTS: ContractConfig = {
-    exchange: "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+    exchange: "0x87B81fd5B3845F68854f7C407477BaD1bC1108D1",
     negRiskAdapter: "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296",
     negRiskExchange: "0xC5d563A36AE78145C45a50134d48A1215220f80a",
     collateral: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
