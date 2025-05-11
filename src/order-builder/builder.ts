@@ -10,7 +10,7 @@ export class OrderBuilder {
     readonly chainId: Chain;
 
     // Signature type used sign orders, defaults to EOA type
-    readonly signatureType: SignatureType;
+    readonly signatureType: number;
 
     // Address which holds funds to be used.
     // Used for Polymarket proxy wallets and other smart contract wallets
@@ -20,7 +20,7 @@ export class OrderBuilder {
     constructor(
         signer: Wallet | JsonRpcSigner,
         chainId: Chain,
-        signatureType?: SignatureType,
+        signatureType?: number,
         funderAddress?: string,
     ) {
         this.signer = signer;
