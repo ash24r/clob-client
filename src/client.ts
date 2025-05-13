@@ -1,6 +1,6 @@
 import { Wallet } from "@ethersproject/wallet";
 import { JsonRpcSigner } from "@ethersproject/providers";
-import { SignatureType, SignedOrder } from "@polymarket/order-utils";
+import { SignedOrder } from "@polymarket/order-utils";
 import {
     ApiKeyCreds,
     ApiKeysResponse,
@@ -42,7 +42,7 @@ import {
     NegRisk,
     BanStatus,
     RfqRequestParams,
-	RfqUserOrder,
+    RfqUserOrder,
 } from "./types";
 import { createL1Headers, createL2Headers } from "./headers";
 import {
@@ -146,7 +146,7 @@ export class ClobClient {
         chainId: Chain,
         signer?: Wallet | JsonRpcSigner,
         creds?: ApiKeyCreds,
-        signatureType?: SignatureType,
+        signatureType?: number,
         funderAddress?: string,
         geoBlockToken?: string,
         useServerTime?: boolean,
@@ -666,8 +666,8 @@ export class ClobClient {
 
         if (!priceValid(userOrder.price, tickSize)) {
             throw new Error(
-                `invalid price (${userOrder.price}), min: ${parseFloat(tickSize)} - max: ${
-                    1 - parseFloat(tickSize)
+                `invalid price (${userOrder.price}),
+                 min: ${parseFloat(tickSize)} - max: ${1 - parseFloat(tickSize)
                 }`,
             );
         }
@@ -700,8 +700,8 @@ export class ClobClient {
 
         if (!priceValid(userMarketOrder.price, tickSize)) {
             throw new Error(
-                `invalid price (${userMarketOrder.price}), min: ${parseFloat(tickSize)} - max: ${
-                    1 - parseFloat(tickSize)
+                `invalid price (${userMarketOrder.price}), 
+                min: ${parseFloat(tickSize)} - max: ${1 - parseFloat(tickSize)
                 }`,
             );
         }
