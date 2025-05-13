@@ -1060,12 +1060,16 @@ export class ClobClient {
             if (!book.asks) {
                 throw new Error("no match");
             }
-            return calculateBuyMarketPrice(book.asks, amount);
+            const sortedAsks = [...book.asks].sort((a, b) =>
+                parseFloat(a.price) - parseFloat(b.price));
+            return calculateBuyMarketPrice(sortedAsks, amount);
         } else {
             if (!book.bids) {
                 throw new Error("no match");
             }
-            return calculateSellMarketPrice(book.bids, amount);
+            const sortedBids = [...book.bids].sort((a, b) =>
+                parseFloat(b.price) - parseFloat(a.price));
+            return calculateSellMarketPrice(sortedBids, amount);
         }
     }
 
